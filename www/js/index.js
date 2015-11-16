@@ -58,7 +58,7 @@ var app = {
         
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-        scanner.scan(BarcodeScanner.Type.QR_CODE, function (result) { 
+        scanner.scan(function (result) { 
 
             alert("We got a barcode\n" + 
             "Result: " + result.text + "\n" + 
@@ -69,17 +69,18 @@ var app = {
                 "text: " + result.text + "\n" +
                 "format: " + result.format + "\n" +
                 "cancelled: " + result.cancelled + "\n");
-            document.getElementById("info").innerHTML = result.text;
-            console.log(result);
+            //document.getElementById("info").innerHTML = result.text;
+            //console.log(result);
             /*
             if (args.format == "QR_CODE") {
                 window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
             }
             */
 
-        }, function (error) { 
-            console.log("Scanning failed: ", error); 
-        } );
+            }, function (error) { 
+                console.log("Scanning failed: ", error); 
+            }
+	);
     },
 
     encode: function() {
